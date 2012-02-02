@@ -1,5 +1,5 @@
 from django import forms
-#import settings
+from django.forms.widgets import CheckboxSelectMultiple, TextInput, Textarea
 from cmsplugin_contact.nospam.forms import HoneyPotForm, RecaptchaForm, AkismetForm
 
 SERVICES = (
