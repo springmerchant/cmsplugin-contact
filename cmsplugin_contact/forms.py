@@ -26,7 +26,7 @@ CONTACT_METHOD = (
 class ContactForm(forms.Form):
     email = forms.EmailField(max_length=256)
     subject = forms.CharField(max_length=256, required=False)
-    content = forms.CharField(widget=forms.Textarea())
+    content = forms.CharField(widget=forms.Textarea(attrs={'rows':5}))
     website_url = forms.CharField(max_length=256, label=u'Website URL', initial='http://', required=False, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
     services = forms.MultipleChoiceField(required=False, widget=CheckboxSelectMultiple, choices=SERVICES)
     phone = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
