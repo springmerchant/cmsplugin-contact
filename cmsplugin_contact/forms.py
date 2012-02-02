@@ -17,6 +17,11 @@ BUDGET = (
     ('over5000', '$5000 - $7000'),
     ('other', 'Other'),
     )
+
+CONTACT_METHOD = (
+    ('email','Email'),
+    ('phone', 'Phone')
+)
   
 class ContactForm(forms.Form):
     email = forms.EmailField(max_length=256)
@@ -27,6 +32,7 @@ class ContactForm(forms.Form):
     phone = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
     budget = forms.ChoiceField(required=True, choices=BUDGET)
     name = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    how_to_contact = forms.ChoiceField(label='Contact me via', required=True, choices=CONTACT_METHOD)
 
   
 class HoneyPotContactForm(HoneyPotForm):
