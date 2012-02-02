@@ -19,13 +19,14 @@ BUDGET = (
     )
   
 class ContactForm(forms.Form):
-    email = forms.EmailField()
-    subject = forms.CharField(required=False)
+    email = forms.EmailField(max_length=256)
+    subject = forms.CharField(max_length=256, required=False)
     content = forms.CharField(widget=forms.Textarea())
-    website_url = forms.CharField(label=u'Website URL', initial='http://', required=False, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    website_url = forms.CharField(max_length=256, label=u'Website URL', initial='http://', required=False, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
     services = forms.MultipleChoiceField(required=False, widget=CheckboxSelectMultiple, choices=SERVICES)
-    phone = forms.CharField(required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    phone = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
     budget = forms.ChoiceField(required=True, choices=BUDGET)
+    name = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
 
   
 class HoneyPotContactForm(HoneyPotForm):
