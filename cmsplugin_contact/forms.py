@@ -27,11 +27,11 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=256)
     subject = forms.CharField(max_length=256, required=False)
     content = forms.CharField(widget=forms.Textarea(attrs={'rows':5}))
-    website_url = forms.CharField(max_length=256, label=u'Website URL', initial='http://', required=False, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    website_url = forms.CharField(max_length=256, label=u'Website URL', initial='http://', required=False, widget=TextInput())
     services = forms.MultipleChoiceField(required=False, widget=CheckboxSelectMultiple, choices=SERVICES)
-    phone = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    phone = forms.CharField(max_length=256, required=True, widget=TextInput())
     budget = forms.ChoiceField(required=True, choices=BUDGET)
-    name = forms.CharField(max_length=256, required=True, widget=TextInput(attrs={'class': 'form-field rounded-field'}))
+    name = forms.CharField(max_length=256, required=True, widget=TextInput())
     how_to_contact = forms.ChoiceField(label='Contact me via', required=True, choices=CONTACT_METHOD)
 
   
